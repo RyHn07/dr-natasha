@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import './services.css'
 
 const A = '/assets/'
 
@@ -28,8 +29,8 @@ function Header() {
         <a className="logo" href="#home"><img src={`${A}icon-3.svg`} alt="Fraser Family Dental" /></a>
         <button className="menu-toggle" aria-label="Open navigation">☰</button>
         <nav>
-          <a href="#home">Home</a><a href="#services">Services</a><a href="#doctor">About Dr. Fraser</a>
-          <a className="nav-contact" href="#schedule">Contact <Arrow /></a>
+          <a href="/">Home</a><a href="/services">Services</a><a href="/#doctor">About Dr. Fraser</a>
+          <a className="nav-contact" href="/#schedule">Contact <Arrow /></a>
         </nav>
       </div>
     </div>
@@ -64,6 +65,20 @@ function Services() {
   </section>
 }
 
+const serviceGroups = [
+  { eyebrow: 'PREVENTIVE SERVICES', image: 'service-cleaning.jpeg', services: [{ title: 'Dental Cleanings', paragraphs: ['During your cleaning, our hygienist gently removes plaque, tartar, and stains from your teeth. We use a combination of hand tools and gentle ultrasonic technology for a thorough clean.', 'After your cleaning, the dentist will complete an exam and oral cancer screening.', 'We typically recommend a cleaning every six months.'] }] },
+  { eyebrow: 'Nightguard/ Sleep appliance', image: 'service-nightguard.png', services: [{ title: 'Nightguard', paragraphs: ['A custom nightguard protects your teeth if you grind or clench while sleeping. It fits comfortably and helps prevent damage over time.'] }, { title: 'Sleep Appliance', paragraphs: ['For patients diagnosed with mild to moderate sleep apnea, a custom sleep appliance can help keep your airway open during sleep. This can reduce snoring and improve breathing at night.'] }] },
+  { eyebrow: 'Dentures', image: 'service-dentures.jpeg', services: [{ title: 'Dentures and Partials', paragraphs: ['If you are missing teeth or having difficulty chewing, dentures or partials can help restore your smile and confidence.', 'We offer several options, including full dentures, partial dentures, and implant-supported dentures for added stability.', 'Our goal is to make sure your dentures fit comfortably and allow you to speak and eat with confidence. We will work closely with you to make any needed adjustments.'] }] },
+  { eyebrow: 'Root canal', image: 'doctor-figma.png', services: [{ title: 'Root Canal Therapy', paragraphs: ['If you are experiencing severe or persistent tooth pain, a root canal may help save your natural tooth.', 'During the procedure, the infected tissue inside the tooth is gently removed, and the tooth is cleaned, sealed, and protected—often with a crown.', 'With modern techniques and local anesthesia, the procedure is designed to be as comfortable as possible.'] }] },
+  { eyebrow: 'Extractions', image: 'service-implants.png', services: [{ title: 'Extractions', paragraphs: ['Tooth extraction may be recommended if a tooth cannot be safely restored due to damage or bone loss.', 'We use local anesthesia to keep you comfortable during the procedure, and we’ll walk you through your options for replacing the tooth - such as implants, bridges, or dentures.'] }] },
+  { eyebrow: 'Implants', image: 'service-implants.png', services: [{ title: 'Implants', paragraphs: ['Dental implants are a long-lasting solution for replacing missing teeth.', 'After the implant is placed and fully healed, a custom crown, bridge, or denture is attached to restore your smile, function, and confidence.'] }] },
+  { eyebrow: 'Cosmetic Dentistry', image: 'testimonial-figma.png', services: [{ title: 'Dental Veneers', paragraphs: ['Veneers are a great option if you’d like to improve the appearance of your smile. They can help correct discoloration, small gaps, uneven shape, or minor misalignment.', 'Porcelain veneers are custom-made to fit over your teeth and create a natural, polished look. Composite veneers can often be completed in a single visit.'] }] }
+]
+
+function ServicesPage() {
+  return <><Header /><main className="services-page"><section className="services-hero"><div><p>Fraser Family Dental</p><h1>Dental Services</h1><span>Care tailored to your smile, comfort, and long-term oral health.</span></div></section><section className="service-page-intro"><div className="narrow"><p className="eyebrow">OUR APPROACH</p><h2>Thoughtful dentistry for every stage of life.</h2><p>Explore the services we offer to help you maintain, restore, and feel confident in your smile.</p></div></section><div className="service-page-list">{serviceGroups.map((group, index) => <section className={`service-detail ${index % 2 ? 'reverse' : ''}`} key={group.eyebrow}><div className="service-detail-image"><img src={`${A}${group.image}`} alt="" /></div><div className="service-detail-copy"><p className="eyebrow">{group.eyebrow}</p>{group.services.map(service => <article key={service.title}><h2>{service.title}</h2>{service.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</article>)}</div></section>)}</div><section className="services-cta"><div><p className="eyebrow">YOUR NEXT VISIT</p><h2>Ready to care for your smile?</h2><a className="solid-button" href="tel:0008882222">Schedule Now <Arrow /></a></div></section></main><Footer /></>
+}
+
 function Doctor() {
   return <section id="doctor" className="doctor section"><div className="shell doctor-wrap"><img src={`${A}doctor-figma.png`} alt="Dr. Natashya Fraser" /><div className="doctor-panel"><h2>Dr. Natashya Fraser, DDS</h2><p>Dr. Natashya Fraser is the owner and lead dentist at Fraser Family Dental, where she is dedicated to providing compassionate, high-quality care to patients of all ages in the Glenville community.</p><p>With many years of experience in general dentistry, Dr. Fraser is known for her gentle approach, attention to detail, and commitment to helping patients feel comfortable and confident in their care.</p><a className="outline-button" href="#doctor">About Dr. Fraser</a></div></div></section>
 }
@@ -81,6 +96,7 @@ function Footer() {
   return <footer><div className="shell footer-info"><div className="footer-logo"><img src={`${A}icon-10.svg`} alt="Fraser Family Dental" /></div><div><h2>Fraser Family Dental</h2><p>At Fraser Family Dental, we believe every patient deserves care that is personalized, comfortable, and easy to understand.</p></div></div><div className="shell footer-rule" /><div className="shell footer-bottom"><p>Copyright ©2026 Fraser Family Dental. All rights reserved.</p><div className="footer-social"><a href="#facebook"><Icon name="icon-1.svg" alt="Facebook" /></a><a href="#linkedin"><Icon name="icon-2.svg" alt="LinkedIn" /></a><a href="#google"><Icon name="icon-5.svg" alt="Google" /></a></div></div></footer>
 }
 
-function App() { return <><Header /><main><Hero /><Services /><Doctor /><Testimonials /><Schedule /></main><Footer /></> }
+function HomePage() { return <><Header /><main><Hero /><Services /><Doctor /><Testimonials /><Schedule /></main><Footer /></> }
+function App() { return window.location.pathname.replace(/\/$/, '') === '/services' ? <ServicesPage /> : <HomePage /> }
 
 createRoot(document.getElementById('root')).render(<App />)
