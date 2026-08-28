@@ -1,11 +1,11 @@
 /* Keep every desktop service feature at the same visual height. */
 .service-detail {
-  height: 540px;
+  height: 600px;
   min-height: 0;
 }
 
 .service-detail-image {
-  height: 540px;
+  height: 600px;
   min-height: 0;
 }
 
