@@ -1,0 +1,21 @@
+/* Keep every desktop service feature at the same visual height. */
+.service-detail {
+  height: 540px;
+  min-height: 0;
+}
+
+.service-detail-image {
+  height: 540px;
+  min-height: 0;
+}
+
+.service-detail-copy {
+  padding: 48px 64px;
+}
+
+@media (max-width: 700px) {
+  .service-detail,
+  .service-detail.reverse {
+    height: auto;
+  }
+}
