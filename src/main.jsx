@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { useEffect, useRef, useState } from "react";
 import "./styles.css";
@@ -387,17 +388,20 @@ function ServicesPage() {
               <TreatmentCarousel category={category} activeTitle={activeServices[category.id]} onSelect={(title) => setActiveServices((current) => ({ ...current, [category.id]: title }))} />
               {activeServices[category.id] && (() => {
                 const service = category.services.find(({ title }) => title === activeServices[category.id]);
-                return <div className="treatment-modal-backdrop" role="presentation" onClick={() => setActiveServices((current) => ({ ...current, [category.id]: null }))}>
-                  <article className={`treatment-detail ${category.tone}`} role="dialog" aria-modal="true" aria-label={service.title} aria-live="polite" onClick={(event) => event.stopPropagation()}>
-                    <img src={`${A}${serviceImageByTitle[service.title]}`} alt={service.title} />
-                    <div>
-                      <button className="treatment-modal-close" type="button" aria-label="Close details" onClick={() => setActiveServices((current) => ({ ...current, [category.id]: null }))}>×</button>
-                      <p className="eyebrow">Fraser Family Dental</p>
-                      <h3>{service.title}</h3>
-                      {service.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                    </div>
-                  </article>
-                </div>;
+                return createPortal(
+                  <div className="treatment-modal-backdrop" role="presentation" onClick={() => setActiveServices((current) => ({ ...current, [category.id]: null }))}>
+                    <article className={`treatment-detail ${category.tone}`} role="dialog" aria-modal="true" aria-label={service.title} aria-live="polite" onClick={(event) => event.stopPropagation()}>
+                      <img src={`${A}${serviceImageByTitle[service.title]}`} alt={service.title} />
+                      <div>
+                        <button className="treatment-modal-close" type="button" aria-label="Close details" onClick={() => setActiveServices((current) => ({ ...current, [category.id]: null }))}>×</button>
+                        <p className="eyebrow">Fraser Family Dental</p>
+                        <h3>{service.title}</h3>
+                        {service.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                      </div>
+                    </article>
+                  </div>,
+                  document.body,
+                );
               })()}
             </section>
           ))}
