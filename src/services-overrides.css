@@ -1,0 +1,479 @@
+/* Let grouped treatment content determine each feature's height. */
+.service-detail {
+  height: auto;
+  min-height: 500px;
+}
+
+.service-detail-image {
+  height: auto;
+  min-height: 500px;
+}
+
+.service-detail-copy {
+  padding: 48px 64px;
+}
+
+
+/* Services page: use the logo blue wherever the previous brown panel appeared. */
+.services-hero {
+  background-image: linear-gradient(rgba(66, 162, 219, 0.84), rgba(66, 162, 219, 0.84)), url('/assets/hero-b.jpeg');
+}
+
+.service-detail.reverse .service-detail-copy {
+  background: #42A2DB;
+}
+
+.service-detail.reverse .service-detail-copy .eyebrow,
+.service-detail.reverse .service-detail-copy article p {
+  color: #fff;
+}
+
+/* Category-first services layout: all treatments remain clearly grouped. */
+.service-category-list {
+  width: min(var(--shell), calc(100% - 64px));
+  margin: 0 auto;
+  padding: 96px 0 120px;
+}
+
+.service-category {
+  scroll-margin-top: 24px;
+}
+
+.service-category + .service-category {
+  margin-top: 88px;
+}
+
+.service-category-heading {
+  min-height: 310px;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  background: #f6fafb;
+}
+
+.service-category-heading img {
+  width: 100%;
+  height: 100%;
+  min-height: 310px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-category-heading > div {
+  padding: 54px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-category-heading h2 {
+  margin: 0 0 18px;
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+.service-category-heading > div > p:last-child {
+  max-width: 550px;
+  margin: 0;
+  color: var(--copy);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.service-category.restorative .service-category-heading {
+  background: #42a2db;
+  color: #fff;
+}
+
+.service-category.restorative .eyebrow,
+.service-category.restorative .service-category-heading > div > p:last-child {
+  color: #fff;
+}
+
+.service-category.cosmetic .service-category-heading {
+  background: var(--brown);
+  color: #fff;
+}
+
+.service-category.cosmetic .eyebrow {
+  color: #d4b7a7;
+}
+
+.service-category.cosmetic .service-category-heading > div > p:last-child {
+  color: #f1ebea;
+}
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 2px;
+  background: #ded7d3;
+}
+
+.treatment-card {
+  padding: 42px 46px;
+  background: #fff;
+}
+
+.treatment-card h3 {
+  margin: 0 0 18px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.treatment-card p {
+  margin: 0 0 14px;
+  color: var(--copy);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.treatment-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Compact directory treatment: replaces the large image-banner presentation. */
+.service-category-list {
+  padding-top: 72px;
+}
+
+.service-category + .service-category {
+  margin-top: 64px;
+}
+
+.service-category-heading {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(300px, .72fr) 1.28fr;
+  border-left: 8px solid var(--brown);
+  background: #f6fafb;
+}
+
+.service-category-heading img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.service-category-heading > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px 48px 38px;
+}
+
+.service-category-heading h2 {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.service-category-heading > div > p:last-child {
+  max-width: 710px;
+  font-size: 18px;
+}
+
+.service-category.restorative .service-category-heading {
+  background: #eef8fd;
+  border-left-color: #42a2db;
+  color: var(--brown);
+}
+
+.service-category.restorative .eyebrow,
+.service-category.restorative .service-category-heading > div > p:last-child {
+  color: var(--copy);
+}
+
+.service-category.cosmetic .service-category-heading {
+  background: #edf7fc;
+  border-left-color: #78bee5;
+  color: var(--brown);
+}
+
+.service-category.cosmetic .eyebrow,
+.service-category.cosmetic .service-category-heading > div > p:last-child {
+  color: var(--copy);
+}
+
+.treatment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  background: transparent;
+}
+
+.treatment-card {
+  min-height: 230px;
+  padding: 32px;
+  border-top: 4px solid var(--brown);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(55, 38, 31, .08);
+}
+
+.service-category.restorative .treatment-card {
+  border-top-color: #42a2db;
+}
+
+.service-category.cosmetic .treatment-card {
+  border-top-color: #78bee5;
+}
+
+.treatment-card h3 {
+  font-size: 25px;
+  margin-bottom: 14px;
+}
+
+.treatment-card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .service-detail,
+  .service-detail.reverse {
+    height: auto;
+  }
+
+  .service-category-list {
+    width: 100%;
+    padding: 72px 0;
+  }
+
+  .service-category + .service-category {
+    margin-top: 56px;
+  }
+
+  .service-category-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .service-category-heading img {
+    display: block;
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .service-category-heading > div {
+    padding: 34px 30px;
+  }
+
+  .service-category-heading img {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .service-category-heading > div {
+    padding: 42px 30px;
+  }
+
+  .service-category-heading h2 {
+    font-size: 34px;
+  }
+
+  .service-category-heading > div > p:last-child,
+  .treatment-card p {
+    font-size: 16px;
+  }
+
+  .treatment-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .treatment-card {
+    min-height: 0;
+    padding: 28px 30px;
+  }
+
+  .treatment-card h3 {
+    font-size: 25px;
+  }
+}
+
+/* Show all treatments together; clicking one opens its detail modal. */
+.treatment-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; scroll-snap-type: none; gap: 18px; padding: 0; }
+.treatment-card { min-width: 0; width: 100%; }
+.treatment-modal-backdrop { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; padding: 28px; overflow-y: auto; background: rgba(31, 23, 19, .64); }
+.treatment-modal-backdrop .treatment-detail { width: min(960px, 100%); max-height: min(760px, calc(100vh - 56px)); margin: auto; grid-template-columns: minmax(300px, .82fr) 1.18fr; overflow: auto; }
+.treatment-detail > div { position: relative; }
+.treatment-modal-close { position: absolute; top: 18px; right: 20px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: var(--brown) !important; color: #fff !important; font-size: 27px !important; line-height: 1; font-weight: 400 !important; }
+.treatment-modal-close:hover, .treatment-modal-close:focus-visible { background: #42a2db !important; outline: 2px solid #fff; }
+@media (max-width: 760px) {
+  .treatment-grid { grid-template-columns: 1fr; gap: 14px; }
+  .treatment-modal-backdrop { padding: 18px; }
+  .treatment-modal-backdrop .treatment-detail { max-height: calc(100vh - 36px); }
+}
+
+/* Individual treatment imagery: categories stay as concise labels. */
+.service-category-heading {
+  display: block;
+  min-height: 0;
+}
+
+.service-category-heading > div {
+  display: block;
+  padding: 34px 44px 30px;
+}
+
+.treatment-card {
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border-top: 0;
+}
+
+.treatment-card-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.treatment-card-body {
+  padding: 26px 28px 30px;
+}
+
+.treatment-card h3 {
+  margin-bottom: 14px;
+}
+
+@media (max-width: 760px) {
+  .service-category-heading > div {
+    padding: 30px 28px 28px;
+  }
+
+  .treatment-card-image {
+    height: 220px;
+  }
+
+  .treatment-card-body {
+    padding: 24px 26px 28px;
+  }
+}
+
+/* Phase 1: animated services introduction and treatment carousels. */
+.services-hero {
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--brown);
+}
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  background: linear-gradient(rgba(55, 38, 31, .72), rgba(55, 38, 31, .72)), url('/assets/hero-b.jpeg') center 46% / cover;
+  z-index: 0;
+  animation: services-image-expand 1.15s cubic-bezier(.2,.72,.2,1) both;
+}
+
+.services-hero > div { position: relative; z-index: 1; }
+.services-hero p { animation: services-fade-up .55s .72s ease both; }
+.services-hero h1 { color: #42a2db; font-size: clamp(42px, 5vw, 48px); animation: services-title-grow .68s 1.02s cubic-bezier(.18,.85,.25,1) both; }
+.services-hero span { color: #dedede; animation: services-fade-up .5s 1.62s ease both; }
+
+@keyframes services-image-expand { from { transform: scaleX(1); } to { transform: scaleX(1.08); } }
+@keyframes services-fade-up { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+@keyframes services-title-grow { from { opacity: 0; transform: scale(.58); } to { opacity: 1; transform: scale(1); } }
+
+.service-page-intro { padding: 44px 0 52px; background: #fff; }
+.service-page-intro .narrow > p:last-child { max-width: 840px; font-size: 24px; color: var(--copy); margin: 0 auto; }
+
+.treatment-carousel { position: relative; margin-top: 20px; }
+.treatment-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; gap: 22px; margin: 0; padding: 4px; scrollbar-width: none; }
+.treatment-grid::-webkit-scrollbar { display: none; }
+.treatment-card { flex: 0 0 calc((100% - 52px) / 3); min-width: 270px; padding: 0; border: 0; text-align: left; color: var(--brown); font: inherit; cursor: pointer; scroll-snap-align: start; box-shadow: 0 6px 18px rgba(55,38,31,.11), 0 1px 3px rgba(55,38,31,.06); transition: transform .22s ease, box-shadow .22s ease; }
+.treatment-card:hover, .treatment-card:focus-visible, .treatment-card.is-active { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(55,38,31,.16), 0 3px 8px rgba(55,38,31,.08); outline: none; }
+.treatment-card:focus-visible { outline: 3px solid #42a2db; outline-offset: 4px; }
+.treatment-card-media { height: 220px; overflow: hidden; border-radius: 0 42px 0 42px; }
+.treatment-card-image { width: 100%; height: 100%; border-radius: 0; object-fit: cover; object-position: center; transform: scale(1.15); transition: transform .3s ease; }
+.treatment-card:hover .treatment-card-image, .treatment-card:focus-visible .treatment-card-image { transform: scale(1.21); }
+.treatment-card-body { background: #fff; padding: 22px 25px 26px; }
+.treatment-card h3 { margin: 0; font-size: 23px; }
+.carousel-arrow { position: absolute; z-index: 2; top: 95px; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; background: var(--brown); color: #fff; font-size: 27px; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(55,38,31,.25); }
+.carousel-arrow:hover, .carousel-arrow:focus-visible { background: #42a2db; outline: 3px solid #fff; }
+.carousel-arrow.previous { left: -22px; }
+.carousel-arrow.next { right: -22px; }
+
+.treatment-detail { display: grid; grid-template-columns: minmax(280px, .82fr) 1.18fr; margin-top: 28px; overflow: hidden; background: #fff; box-shadow: 0 20px 45px rgba(55,38,31,.16); animation: detail-reveal .34s ease both; }
+.treatment-detail > img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; }
+.treatment-detail > div { padding: 46px 52px; }
+.treatment-detail h3 { margin: 0 0 18px; font-size: 34px; line-height: 1.2; }
+.treatment-detail p:not(.eyebrow) { color: var(--copy); font-size: 17px; line-height: 1.65; }
+.treatment-detail button { border: 0; padding: 0; background: transparent; color: var(--brown); font: inherit; font-weight: 700; cursor: pointer; }
+@keyframes detail-reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 760px) {
+  .services-hero { height: 360px; }
+  .services-hero h1 { font-size: 42px; }
+  .service-page-intro { padding: 36px 0 44px; }
+  .service-page-intro .narrow > p:last-child { font-size: 20px; }
+  .treatment-grid { gap: 16px; }
+  .treatment-card { flex-basis: 82%; }
+  .treatment-card-media { height: 235px; }
+  .carousel-arrow { top: 104px; width: 42px; height: 42px; }
+  .carousel-arrow.previous { left: -10px; }
+  .carousel-arrow.next { right: -10px; }
+  .treatment-detail { grid-template-columns: 1fr; }
+  .treatment-detail > img { min-height: 255px; height: 255px; }
+  .treatment-detail > div { padding: 32px 28px; }
+  .treatment-detail h3 { font-size: 29px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-hero::before, .services-hero p, .services-hero h1, .services-hero span, .treatment-detail { animation: none; }
+  .treatment-grid { scroll-behavior: auto; }
+}
+
+/* Phase 2: Atlanta-inspired testimonial card. */
+.testimonials { background: #f6fafb; }
+.testimonials-wrap { height: auto; }
+.testimonial-content { position: relative; overflow: hidden; padding: 68px clamp(28px, 7vw, 86px) 56px; text-align: center; background: #fff; box-shadow: 0 18px 44px rgba(55,38,31,.13); }
+.testimonial-content::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 10px; background: linear-gradient(90deg, #42a2db, #78bee5); }
+.testimonial-content > .eyebrow { color: #42a2db; margin-bottom: 12px; }
+.testimonial-content h2 { margin: 0; color: var(--brown); font-size: clamp(31px, 4vw, 45px); line-height: 1.15; }
+.testimonial-slide { width: min(650px, 100%); min-height: 250px; margin: 42px auto 24px; padding: 38px 46px; background: #f7fafb; border: 1px solid #e4ecef; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: detail-reveal .32s ease both; }
+.testimonial-quote-mark { display: block; height: 42px; color: #42a2db; font-family: Georgia, serif; font-size: 76px; line-height: .8; }
+.testimonial-slide p { margin: 16px 0 23px; color: var(--copy); font-size: 20px; line-height: 1.6; }
+.testimonial-slide h3 { margin: 0; color: var(--brown); font-size: 19px; }
+.testimonial-controls { display: flex; justify-content: center; align-items: center; gap: 24px; }
+.testimonial-controls > button { width: 42px; height: 42px; border: 1px solid #42a2db; border-radius: 50%; background: #fff; color: #42a2db; font-size: 22px; cursor: pointer; }
+.testimonial-controls > button:hover, .testimonial-controls > button:focus-visible { background: #42a2db; color: #fff; outline: none; }
+.testimonial-dots { display: flex; gap: 9px; }
+.testimonial-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #c9dfe9; cursor: pointer; }
+.testimonial-dots button.is-active { width: 26px; border-radius: 999px; background: #42a2db; }
+@media (max-width: 700px) {
+  .testimonial-content { padding: 54px 22px 45px; }
+  .testimonial-slide { min-height: 265px; margin-top: 34px; padding: 30px 24px; }
+  .testimonial-slide p { font-size: 17px; }
+}
+
+/* Balanced whitespace inside the service detail popup. */
+.treatment-modal-backdrop .treatment-detail {
+  gap: 34px;
+  padding: 18px;
+  border-top: 5px solid var(--brown);
+  border-radius: 0 44px 0 44px;
+  box-shadow: 0 24px 60px rgba(31, 23, 19, .30), 0 5px 16px rgba(31, 23, 19, .16);
+}
+.treatment-modal-backdrop .treatment-detail.restorative { border-top-color: #42a2db; }
+.treatment-modal-backdrop .treatment-detail.cosmetic { border-top-color: #78bee5; }
+.treatment-modal-backdrop .treatment-detail > img {
+  min-height: 320px;
+  border-radius: 24px;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+.treatment-modal-backdrop .treatment-detail > div {
+  padding: 40px 58px 40px 0;
+}
+@media (max-width: 760px) {
+  .treatment-modal-backdrop .treatment-detail { gap: 0; padding: 14px; }
+  .treatment-modal-backdrop .treatment-detail > img { min-height: 230px; height: 230px; }
+  .treatment-modal-backdrop .treatment-detail > div { padding: 32px 18px 22px; }
+  .treatment-modal-close { top: 14px; right: 14px; }
+}
+

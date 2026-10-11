@@ -1,0 +1,4 @@
+/* Softer body copy inside the dark patient-care panel. */
+.about-details .patient-care > p:not(.eyebrow) {
+  color: #d8ceca !important;
+}
