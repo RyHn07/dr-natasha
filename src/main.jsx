@@ -7,7 +7,7 @@ import "./about.css";
 import "./about-overrides.css";
 import "./contact.css";
 
-const A = "/assets/";
+const A = `${import.meta.env.BASE_URL}assets/`;
 
 function Icon({ name, alt = "" }) {
   return <img className="icon" src={`${A}${name}`} alt={alt} />;
@@ -73,7 +73,10 @@ const serviceCategories = [
 function Hero() {
   return (
     <section id="home" className="hero">
-      <div className="hero-photo" />
+      <div
+        className="hero-photo"
+        style={{ backgroundImage: `url(${A}hero-building.png)` }}
+      />
       <div className="hero-content">
         <h1>Trusted Care for Healthier, Brighter Smiles</h1>
         <p>

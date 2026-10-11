@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Home hero: client-supplied building image, shown without a dark overlay. */
-.hero-photo{background:center 42%/cover no-repeat url('/assets/hero-building.png') !important;z-index:-1 !important}
+/* Home hero: the image URL uses Vite's deployment-aware base path in JSX. */
+.hero-photo{background:center 42%/cover no-repeat;z-index:0}
 
 /* Brand-blue logo panel with high-contrast white artwork. */
 .logo{background:#42A2DB !important}
@@ -12,5 +12,9 @@
 
 /* Homepage service navigation replaces the previous image cards. */
 .service-category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.service-category-card{min-height:270px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transition:transform .2s ease,box-shadow .2s ease}.service-category-card>span:first-child{font-size:31px;line-height:1.16;font-weight:600;text-transform:uppercase}.service-category-card.preventive{background:var(--brown)}.service-category-card.restorative{background:#42a2db}.service-category-card.cosmetic{background:#78bee5}.service-category-card:hover,.service-category-card:focus-visible{color:#fff;transform:translateY(-5px);box-shadow:0 12px 24px rgba(55,38,31,.2)}.service-category-card:focus-visible{outline:3px solid #1a5276;outline-offset:3px}.service-category-link{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600}.service-category-link .arrow{width:22px;height:22px}.schedule-content{height:auto;min-height:438px;padding:20px 0}.schedule-copy{max-width:700px;margin:-22px 0 0;text-align:center;color:var(--copy);font-size:20px;line-height:1.5}.service-detail[id]{scroll-margin-top:24px}
+
+/* Keep text above the visible hero image without relying on negative stacking. */
+.hero-photo{z-index:0}
+.hero-content{z-index:1}
 @media(max-width:900px){.service-category-grid{grid-template-columns:1fr;gap:18px}.service-category-card{min-height:190px}.service-category-card>span:first-child{font-size:28px}}
 @media(max-width:700px){.service-category-grid{gap:16px}.service-category-card{min-height:165px;padding:26px}.service-category-card>span:first-child{font-size:25px}.schedule-copy{font-size:17px;margin:-12px 0 0}}
