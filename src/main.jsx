@@ -24,6 +24,10 @@ function Arrow() {
 }
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header>
       <div className="topbar">
@@ -49,14 +53,14 @@ function Header() {
           <a className="logo" href={homeUrl}>
             <img src={`${A}icon-10.svg`} alt="Fraser Family Dental" />
           </a>
-          <button className="menu-toggle" aria-label="Open navigation">
-            ☰
+          <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? "×" : "☰"}
           </button>
-          <nav>
-            <a href="/">Home</a>
-            <a href="/services">Services</a>
-            <a href="/about">About Dr. Fraser</a>
-            <a className="nav-contact" href="/contact">
+          <nav className={menuOpen ? "is-open" : ""}>
+            <a href={homeUrl} onClick={closeMenu}>Home</a>
+            <a href="/services" onClick={closeMenu}>Services</a>
+            <a href="/about" onClick={closeMenu}>About Dr. Fraser</a>
+            <a className="nav-contact" href="/contact" onClick={closeMenu}>
               Contact <Arrow />
             </a>
           </nav>
@@ -693,6 +697,7 @@ function AboutPage() {
   );
 }
 function ContactPage() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const hours = [
     ["Mon", "8:00 AM – 5:00 PM"],
     ["Tue", "8:00 AM – 5:00 PM"],
@@ -743,7 +748,7 @@ function ContactPage() {
               Tell us how we can help, and our team will get back to you as soon
               as possible.
             </p>
-            <form onSubmit={(event) => event.preventDefault()}>
+            <form onSubmit={(event) => { event.preventDefault(); setFormSubmitted(true); }}>
               <div className="field-row">
                 <label>
                   First name
@@ -786,6 +791,7 @@ function ContactPage() {
               <button className="solid-button" type="submit">
                 Send Message <Arrow />
               </button>
+              {formSubmitted && <p className="form-success" role="status">Thanks! Your message has been received. We’ll be in touch soon.</p>}
             </form>
           </section>
         </section>
