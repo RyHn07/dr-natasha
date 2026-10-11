@@ -16,5 +16,10 @@
 /* Keep text above the visible hero image without relying on negative stacking. */
 .hero-photo{z-index:0}
 .hero-content{z-index:1}
+
+/* Sections reveal once as they enter the viewport. */
+main section.scroll-reveal{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+main section.scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){main section.scroll-reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:900px){.service-category-grid{grid-template-columns:1fr;gap:18px}.service-category-card{min-height:190px}.service-category-card>span:first-child{font-size:28px}}
 @media(max-width:700px){.service-category-grid{gap:16px}.service-category-card{min-height:165px;padding:26px}.service-category-card>span:first-child{font-size:25px}.schedule-copy{font-size:17px;margin:-12px 0 0}}

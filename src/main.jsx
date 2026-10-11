@@ -8,6 +8,7 @@ import "./about-overrides.css";
 import "./contact.css";
 
 const A = `${import.meta.env.BASE_URL}assets/`;
+const homeUrl = import.meta.env.BASE_URL;
 
 function Icon({ name, alt = "" }) {
   return <img className="icon" src={`${A}${name}`} alt={alt} />;
@@ -44,7 +45,7 @@ function Header() {
       </div>
       <div className="navigation">
         <div className="shell nav-inner">
-          <a className="logo" href="#home">
+          <a className="logo" href={homeUrl}>
             <img src={`${A}icon-10.svg`} alt="Fraser Family Dental" />
           </a>
           <button className="menu-toggle" aria-label="Open navigation">
@@ -445,6 +446,7 @@ function Doctor() {
 
 function Testimonials() {
   const testimonials = [
+    { quote: "Just wanted to say thank you so much for going above and beyond and seeing me on Friday when you were closed. You saved me from a horrible weekend! Really appreciate you!", name: "Ed" },
     { quote: "Dr. Fraser took the time to explain everything and made me feel completely comfortable.", name: "Sarah M." },
     { quote: "The whole team was warm, professional, and welcoming from the moment I arrived.", name: "Michael R." },
     { quote: "My cleaning was gentle and thorough. I left feeling confident about my oral health.", name: "Emily T." },
@@ -796,6 +798,30 @@ function ContactPage() {
 }
 function App() {
   const path = window.location.pathname.replace(/\/$/, "");
+  useEffect(() => {
+    const sections = [...document.querySelectorAll("main section")];
+
+    if (!sections.length || !window.IntersectionObserver) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8%" },
+    );
+
+    sections.forEach((section) => {
+      section.classList.add("scroll-reveal");
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [path]);
+
   return path === "/services" ? (
     <ServicesPage />
   ) : path === "/about" ? (
